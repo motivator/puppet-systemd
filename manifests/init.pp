@@ -12,6 +12,7 @@ class systemd (
   exec {
     'systemctl-daemon-reload':
       command => 'systemctl daemon-reload',
+      onlyif  => '/usr/bin/test -x /bin/systemctl',
   }
 
   exec {
